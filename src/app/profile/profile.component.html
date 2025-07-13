@@ -1,0 +1,47 @@
+<div class="profile-page">
+    <div class="profile-header">
+        <div class="user-details">
+            <h2 class="section-title">Logged in as:</h2>
+            <p>{{user?.name|titlecase}} ({{user?.email}})</p>
+        </div>
+        <div class="buttonsContainer">
+            <button class="action-btn" (click)="viewAnalytics()">Analytics</button>
+            <button class="action-btn" (click)="viewNotification()">Notification</button>
+            <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+    </div>
+
+    <section class="posts-section">
+        <h2 class="section-title">My Posts</h2>
+        <div class="post-list">
+            <article class="post-card" *ngFor="let post of posts">
+                <div class="post-details">
+                    <img src="{{thumbnail(post.media)}}" alt="post-image" class="post-image"
+                        [routerLink]='["/post",post._id]' />
+                    <div class="post-content" [routerLink]='["/post",post._id]'>
+                        <div class="post-meta">
+                            <span class="post-date">{{post.authorName|titlecase}} • {{post.publishDate|date}}</span>
+                        </div>
+                        <h3 class="post-title">
+                            <p class="post-link">{{post.title}}</p>
+                        </h3>
+                        <p class="post-description">{{post.content.slice(0,155)}}...<span>read more</span></p>
+                        <div class="post-tags">
+                            <span class="tag tag-design" *ngFor="let tag of post.tags">{{tag}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <span class="tag draft" *ngIf="post?.draft">Drafted</span>
+                    <img src="../../assets/editIcon.svg" alt="editIcon" height="20" width="20"
+                        [routerLink]="['/edit',post._id]">
+                    <img src="../../assets/deleteIcon.svg" alt="deleteIcon" height="20" width="20"
+                        (click)="onDelete(post._id)">
+                </div>
+            </article>
+        </div>
+        <h3 *ngIf="posts.length===0" class="no-blogs">No blogs found</h3>
+    </section>
+    <app-popup *ngIf="showPopup" [id]="id" (setPopup)="setPopup($event)"></app-popup>
+    <app-loader *ngIf="loader"></app-loader>
+</div>

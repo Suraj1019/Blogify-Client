@@ -1,0 +1,39 @@
+<div class="analytics-dashboard">
+    <div class="analytics-dashboard-inner">
+        <div class="card">
+            <h1 class="dashboard-title">Analytics Dashboard</h1>
+            <div class="form-container">
+                <div class="card-grid">
+                    <div class="card-item">
+                        <h3 class="card-item-title">Total Views</h3>
+                        <p class="card-item-value">{{totalViews}}</p>
+                    </div>
+                    <div class="card-item">
+                        <h3 class="card-item-title">Unique Visitors</h3>
+                        <p class="card-item-value">{{uniqueVisitors.length}}</p>
+                    </div>
+                </div>
+                <div class="top-performing-posts">
+                    <h3 class="top-posts-title">Top Performing Blog</h3>
+                    <div class="top-posts-list">
+                        <div class="post-item">
+                            <div class="post-info">
+                                <h4 class="post-title">{{topBlog?.title}}</h4>
+                                <p class="post-date" *ngIf="topBlog.publishDate">Published on
+                                    {{topBlog?.publishDate|date}}</p>
+                            </div>
+                            <div class="post-views">
+                                <p class="views-count" *ngIf="topBlog.views">{{topBlog?.views}} views</p>
+                                <p class="views-count" *ngIf="topBlog.visitors">{{topBlog?.visitors?.length}} Unique
+                                    Visitors</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chartContainer">
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

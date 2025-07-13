@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="post-card">
+        <h1 class="post-header">Preview Post</h1>
+        <h1 class="post-title" id="preview-title">{{postData?.title}}</h1>
+        <div class="tagsContainer">
+            Categories: <span class="category"
+                *ngFor="let category of postData?.categories">{{category|titlecase}}</span>
+            Tags: <span class="tag" *ngFor="let tag of postData?.tags">#{{tag|titlecase}}</span>
+        </div>
+        <div *ngFor="let file of postData?.media">
+            <div class="preview-image-container" *ngIf="ifImage(file)">
+                <img src="{{file}}" alt="Post image" class="post-image" />
+
+            </div>
+            <div class="preview-image-container" *ngIf="!ifImage(file)">
+                <video controls src="{{file}}" class="post-image">
+                </video>
+            </div>
+        </div>
+        <div class="post-description">
+            <p>{{postData?.content}}</p>
+        </div>
+        <div class="button-group">
+            <button type="button" class="btn btn-back" (click)="goBack()">&larr; Back</button>
+            <div>
+                <button type="button" class="btn btn-draft" (click)="publish('draft')">Save as Draft</button>
+                <button type="button" class="btn btn-publish" (click)="publish('publish')">Publish</button>
+            </div>
+        </div>
+    </div>
+</div>

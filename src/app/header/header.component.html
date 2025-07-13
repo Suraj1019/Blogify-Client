@@ -1,0 +1,13 @@
+<header class="header">
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="/" class="logo-link">Blogify</a>
+            </div>
+            <div class="profile" (click)="viewProfile()">
+                <img src="../../assets/profileIcon.svg" alt="Profile" height="25" width="25" />
+                <span *ngIf="user" class="profile-name">{{user.name|titlecase}}</span>
+            </div>
+        </div>
+    </nav>
+</header>

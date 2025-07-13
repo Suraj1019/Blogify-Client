@@ -1,0 +1,100 @@
+<div class="container">
+    <div class="post-card">
+        <h1 class="post-title" id="preview-title">{{postData?.title}}</h1>
+        <div class="tagsContainer">
+            Categories: <span class="category"
+                *ngFor="let category of postData?.categories">{{category|titlecase}}</span>
+            Tags: <span class="tag" *ngFor="let tag of postData?.tags">#{{tag|titlecase}}</span>
+        </div>
+        <div *ngFor="let file of postData?.media">
+            <div class="preview-image-container" *ngIf="ifImage(file)">
+                <img src="{{file}}" alt="Post image" class="post-image" />
+
+            </div>
+            <div class="preview-image-container" *ngIf="!ifImage(file)">
+                <video controls src="{{file}}" class="post-image"></video>
+            </div>
+        </div>
+        <div class="post-description">
+            <p>{{postData?.content}}</p>
+        </div>
+        <div class="comments-container">
+            <div class="comments-box">
+                <h2 class="comments-title">Comments...</h2>
+                <div class="comments-list">
+                    <div class="comment-item" *ngFor="let comment of comments">
+                        <div class="comment-header">
+                            <div class="comment-content">
+
+                                <div class="comment-author-time">
+                                    <div class="avatar">
+                                        <p>{{comment?.userName?.charAt(0)?.toUpperCase()}}</p>
+                                    </div>
+                                    <span class="author">{{comment.userName|titlecase}}</span><span
+                                        class="time">{{comment.commentDate|date:'M/d/yy,h:mm a'}}</span>
+                                </div>
+                                <p class="comment-text">{{comment.message}}</p>
+                                <div class="actions" *ngIf="postData.authorId===userdata.userId">
+                                    <form [formGroup]="replyForm" (ngSubmit)="reply(comment.commentId)"
+                                        class="reply-form">
+                                        <div>
+                                            <input type="text" placeholder="reply" class="reply-input"
+                                                formControlName="reply">
+                                            <div id="replyError"
+                                                *ngIf="replyForm.controls['reply']?.touched || replyForm.controls['reply']?.dirty">
+                                                <p *ngIf="replyForm.controls['reply'].errors?.['required']"
+                                                    class="alert">
+                                                    *Reply
+                                                    Required
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="reply-btn"
+                                            [disabled]=" replyForm.invalid">Reply</button>
+                                    </form>
+
+                                    <button class="reply-btn" (click)="delete(comment.commentId)">Delete
+                                        Comment</button>
+                                </div>
+                                <div class="reply">
+                                    <div class="comment-item" *ngFor="let reply of comment?.replies">
+                                        <div class="comment-header">
+                                            <div class="comment-content">
+                                                <div class="comment-author-time">
+                                                    <div class="avatar">
+                                                        <p>{{postData?.authorName?.charAt(0)?.toUpperCase()}}</p>
+                                                    </div>
+                                                    <span
+                                                        class="author">{{postData?.authorName|titlecase}}(Author)</span><span
+                                                        class="time">{{reply.replyDate|date:'M/d/yy, h:mm a'}}</span>
+                                                </div>
+                                                <p class="comment-text">{{reply.message}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-form">
+                    <h3 class="form-title">Add a Comment</h3>
+                    <form class="form" [formGroup]="commentForm" (ngSubmit)="comment()">
+                        <div>
+                            <textarea class="comment-textarea" rows="4" formControlName="comment"
+                                placeholder="Write your comment here..."></textarea>
+                            <div id="commentError"
+                                *ngIf="commentForm.controls['comment'].touched || commentForm.controls['comment'].dirty">
+                                <p *ngIf="commentForm.controls['comment'].errors?.['required']" class="alert">*Comment
+                                    Required</p>
+                            </div>
+                        </div>
+                        <button type="submit" [disabled]="commentForm.invalid" class="submit-btn">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-loader *ngIf="loader"></app-loader>
+</div>

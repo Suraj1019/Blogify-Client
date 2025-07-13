@@ -1,0 +1,49 @@
+.header {
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    background-color: #d8deeb;
+}
+
+.nav {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo-link {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #000000;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border: 1px solid gray;
+    border-radius: 2rem;
+    padding: .2rem .5rem .2rem .5rem;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.profile-name {
+    color: #111827;
+}

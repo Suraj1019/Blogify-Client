@@ -1,0 +1,143 @@
+.home {
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.post {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    background-color: #FFFFFF;
+}
+
+.post:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 1rem;
+}
+
+.post-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-date {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.post-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.post-description {
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.post-description span {
+    color: rgb(46, 46, 211);
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: .8rem;
+    flex-wrap: wrap;
+}
+
+.tags-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000000;
+}
+
+
+.tag {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+    /* background-color: #f3e8ff;
+    color: #6b21a8; */
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.newpost {
+    border: 1px solid gray;
+    border-radius: 1rem;
+    padding: .75rem;
+    position: sticky;
+    bottom: 2rem;
+    left: 90%;
+    width: 8rem;
+    background-color: #dbeafe;
+    cursor: pointer;
+}
+
+.newpost-icon {
+    display: flex;
+    gap: .35rem;
+    align-items: center;
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.filterContainer {
+    display: flex;
+    align-items: center;
+    gap: .5rem
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #4a5568;
+    background-color: #ffffff;
+}
+
+.searchButton {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #92cccf;
+    color: black;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.no-blogs {
+    height: 50vh;
+}

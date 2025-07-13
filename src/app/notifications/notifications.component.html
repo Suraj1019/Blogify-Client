@@ -1,0 +1,33 @@
+<div class="notifications-container">
+    <div class="notifications-box">
+        <h1 class="notifications-title">Notifications</h1>
+        <div class="notifications-list">
+            <div class="notification-item" *ngFor="let comment of comments">
+                <div class="notification-header">
+                    <div class="notification-content">
+                        <div class="avatar">
+                            <p>{{comment?.userName?.charAt(0)?.toUpperCase()}}</p>
+                        </div>
+                        <div>
+                            <div class="notification-author-time">
+                                <span class="author">{{comment.userName|titlecase}}</span><span
+                                    class="time">{{comment.commenDate|date:'M/d/yy, h:mm a'}}</span>
+                            </div>
+                            <p class="notification-text">Left a comment on <span
+                                    class="highlighted-text">{{comment.postTitle|titlecase}}</span></p>
+                            <p class="comment-text">{{comment.message}}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="approve-btn"
+                            (click)="action('approve',comment.postId,comment.commentId)">Approve</button>
+                        <button class="reject-btn"
+                            (click)="action('reject',comment.postId,comment.commentId)">Reject</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 *ngIf="comments.length===0" class="no-blogs">No notifications found</h3>
+    </div>
+</div>

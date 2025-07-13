@@ -1,0 +1,54 @@
+<div class="sign-up-page">
+    <div class="sign-up-box">
+        <h2 class="sign-up-title">Sign Up</h2>
+        <form class="sign-up-form" [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="form-group">
+                <label class="form-label" for="name">Full Name</label>
+                <input type="text" id="name" name="name" class="input-field" placeholder="Enter your full name"
+                    formControlName="name" />
+                <div id="nameError" *ngIf="signupForm.controls['name'].touched || signupForm.controls['name'].dirty">
+                    <p *ngIf="signupForm.controls['name'].errors?.['required']" class="alert">*Name Required</p>
+                    <p *ngIf="signupForm.controls['name'].errors?.['minLength']" class="alert">*Name should be min 3
+                        characters long!</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" name="email" id="eamil" class="input-field" placeholder="Enter your email"
+                    formControlName="email" />
+                <div id="emailError" *ngIf="signupForm.controls['email'].touched || signupForm.controls['email'].dirty">
+                    <p *ngIf="signupForm.controls['email'].errors?.['required']" class="alert">*Eamil Required</p>
+                    <p *ngIf="signupForm.controls['email'].errors?.['pattern']" class="alert">Inavlid eamil format
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" name="password" class="input-field" placeholder="Create a password"
+                    formControlName="password" />
+                <div id="passwordError"
+                    *ngIf="signupForm.controls['password'].touched || signupForm.controls['password'].dirty">
+                    <p *ngIf="signupForm.controls['password'].errors?.['required']" class="alert">*Password Required
+                    </p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" class="input-field"
+                    placeholder="Confirm your password" formControlName="confirmPassword" />
+                <div id="confirmPasswordError"
+                    *ngIf="signupForm.controls['confirmPassword'].touched || signupForm.controls['confirmPassword'].dirty">
+                    <p *ngIf="signupForm.controls['confirmPassword'].errors?.['required']" class="alert">*Password
+                        Required
+                    </p>
+                </div>
+            </div>
+            <button type="submit" [class]="signupForm.invalid ? 'submit-disabled' :'submit-enabled'"
+                [disabled]="signupForm.invalid">Sign Up</button>
+        </form>
+        <div class="login-link">
+            <p class="login-text">Already have an account?<a href="/login" class="login-anchor"> Log in</a></p>
+        </div>
+    </div>
+    <app-loader *ngIf="loader"></app-loader>
+</div>

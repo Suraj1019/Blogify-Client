@@ -1,0 +1,122 @@
+.sign-up-page {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem 1rem;
+}
+
+.sign-up-box {
+    max-width: 24rem;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sign-up-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sign-up-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #6366f1;
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    height: 1rem;
+    width: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    accent-color: #6366f1;
+}
+
+.checkbox-label {
+    font-size: 0.875rem;
+    color: #374151;
+    margin-left: 0.5rem;
+}
+
+.terms-link {
+    font-size: 0.875rem;
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+.submit-disabled {
+    padding: 0.5rem 1.5rem;
+    color: black;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.submit-enabled {
+    padding: 0.5rem 1.5rem;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.login-link {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.login-text {
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.login-anchor {
+    color: #6366f1;
+    text-decoration: none;
+}
+
+.alert {
+    color: red;
+    padding: .5rem;
+    font-size: 0.8rem;
+    margin: 0;
+}

@@ -1,0 +1,36 @@
+<div class="page-container">
+    <div class="main-content">
+        <div class="login-box">
+            <h2 class="login-title">Login</h2>
+            <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="input-field" placeholder="Enter your email"
+                        formControlName="email" />
+                    <div id="emailError"
+                        *ngIf="loginForm.controls['email'].touched || loginForm.controls['email'].dirty">
+                        <p *ngIf="loginForm.controls['email'].errors?.['required']" class="alert">*Eamil Required</p>
+                        <p *ngIf="loginForm.controls['email'].errors?.['pattern']" class="alert">Inavlid eamil format
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" name="password" class="input-field"
+                        placeholder="Enter your password" formControlName="password" />
+                    <div id="passwordError"
+                        *ngIf="loginForm.controls['password'].touched || loginForm.controls['password'].dirty">
+                        <p *ngIf="loginForm.controls['password'].errors?.['required']" class="alert">*Password Required
+                        </p>
+                    </div>
+                </div>
+                <button type="submit" [class]="loginForm.invalid ? 'submit-disabled' :'submit-enabled'"
+                    [disabled]="loginForm.invalid">Login</button>
+            </form>
+            <div class="signup-link">
+                <p class="signup-text">Don't have an account? <a href="/signup" class="signup-anchor">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+    <app-loader *ngIf="loader"></app-loader>
+</div>
