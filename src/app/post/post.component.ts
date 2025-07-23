@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PostsService } from '../services/posts.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { backend_url } from '../../../src/constant';
 
 @Component({
   selector: 'app-post',
@@ -27,7 +26,6 @@ export class PostComponent {
   replyForm: FormGroup = new FormGroup({});
   user = localStorage.getItem('user');
   userdata = this.user ? JSON.parse(this.user) : {};
-  backend_url = backend_url;
 
   ngOnInit() {
     this.route.params.subscribe((param) => {

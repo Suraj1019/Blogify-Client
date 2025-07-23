@@ -2,7 +2,6 @@ import { Component, OnChanges, SimpleChanges } from '@angular/core';
 import { PostsService } from '../services/posts.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { backend_url } from '../../../src/constant';
 import * as _ from 'lodash';
 
 @Component({
@@ -23,7 +22,6 @@ export class HomeComponent {
   search: string = '';
   imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
   loader: boolean = false;
-  backend_url = backend_url;
 
   ngOnInit(): void {
     this.getPosts();

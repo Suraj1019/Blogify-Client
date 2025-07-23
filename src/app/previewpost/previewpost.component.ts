@@ -3,7 +3,6 @@ import { PostdataService } from '../services/postdata.service';
 import { Router } from '@angular/router';
 import { PostsService } from '../services/posts.service';
 import { ToastrService } from 'ngx-toastr';
-import { backend_url } from '../../../src/constant';
 
 @Component({
   selector: 'app-previewpost',
@@ -21,7 +20,6 @@ export class PreviewpostComponent {
   imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
   videoExtensions = ['mp4', 'mov', 'avi', 'mkv', 'webm'];
   loader: boolean = false;
-  backend_url = backend_url;
 
   ngOnInit() {
     this.postData = this.postDataServce.getData();

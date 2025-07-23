@@ -9,7 +9,6 @@ import { PostsService } from '../services/posts.service';
 import { Router } from '@angular/router';
 import { PostdataService } from '../services/postdata.service';
 import { ToastrService } from 'ngx-toastr';
-import { backend_url } from '../../../src/constant';
 
 @Component({
   selector: 'app-newpost',
@@ -23,7 +22,6 @@ export class NewpostComponent {
   videoExtensions = ['mp4', 'mov', 'avi', 'mkv', 'webm'];
   postData: any;
   loader: boolean = false;
-  backend_url = backend_url;
 
   constructor(
     private fb: FormBuilder,
@@ -34,7 +32,6 @@ export class NewpostComponent {
   ) {}
 
   ngOnInit(): void {
-    console.log(backend_url, 'form const');
     this.postForm = this.fb.group({
       title: ['', Validators.required],
       content: ['', Validators.required],

@@ -9,7 +9,6 @@ import { PostsService } from '../services/posts.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostdataService } from '../services/postdata.service';
 import { ToastrService } from 'ngx-toastr';
-import { backend_url } from '../../../src/constant';
 
 @Component({
   selector: 'app-editpost',
@@ -23,7 +22,6 @@ export class EditpostComponent {
   videoExtensions = ['mp4', 'mov', 'avi', 'mkv', 'webm'];
   postData: any;
   loader: boolean = false;
-  backend_url = backend_url;
 
   constructor(
     private fb: FormBuilder,

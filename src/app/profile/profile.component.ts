@@ -3,7 +3,6 @@ import { PostsService } from '../services/posts.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { backend_url } from '../../../src/constant';
 
 @Component({
   selector: 'app-profile',
@@ -23,7 +22,6 @@ export class ProfileComponent {
   id: any = null;
   imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'];
   loader: boolean = false;
-  backend_url = backend_url;
 
   ngOnInit() {
     let userData = localStorage.getItem('user');
